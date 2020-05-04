@@ -1,11 +1,11 @@
 import React from 'react';
 import ExpenseItem from "./ExpenseItem";
 
-export default function ExpenseList({ expenses }) {
+export default function ExpenseList({ expenses, handleEditItem, handleDeleteItem, clearItems }) {
     if (!expenses.length) {
         return <p>Your current list is empty.</p>;
     }
-    
+
     return (
         <React.Fragment>
             <ul className="list">
@@ -14,11 +14,13 @@ export default function ExpenseList({ expenses }) {
                        <ExpenseItem
                         key={expense.id}
                         expenseInfo={expense}
+                        handleEditItem={handleEditItem}
+                        handleDeleteItem={handleDeleteItem}
                        />
                    )
                })}
             </ul>
-            {expenses.length > 0 && <button className="submit">Clear Expenses</button>}
+            {expenses.length > 0 && <button onClick={clearItems} className="submit">Clear Expenses</button>}
             <ExpenseItem />
         </React.Fragment>
     )

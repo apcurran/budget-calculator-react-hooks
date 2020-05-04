@@ -32,7 +32,10 @@ function App() {
 
     // Check for invalid data first
     if (charge === "" || amount < 0) {
-      handleAlert({ type: "danger", text: "Please check that your charge is not empty, and the amount value is greater than zero." });
+      handleAlert({
+        type: "danger",
+        text: "Please check that your charge is not empty, and the amount value is greater than zero."
+      });
 
       return;
     }
@@ -46,7 +49,10 @@ function App() {
     setExpenses([...expenses, newExpense]);
     setCharge("");
     setAmount("");
-    handleAlert({ type: "success", text: "Item added" })
+    handleAlert({
+      type: "success",
+      text: "Item added"
+    });
   }
 
   function handleAlert({ type, text }) {
@@ -55,6 +61,18 @@ function App() {
     setTimeout(() => {
       setAlert({ show: false });
     }, 4000);
+  }
+
+  function clearItems() {
+    setExpenses([]);
+  }
+
+  function handleDeleteItem(id) {
+    console.log(`Item deleted ${id}`);
+  }
+
+  function handleEditItem(id) {
+    console.log(`Item edited ${id}`);
   }
 
   return (
@@ -70,7 +88,12 @@ function App() {
           handleCharge={handleCharge}
           handleSubmit={handleSubmit}
         />
-        <ExpenseList expenses={expenses} />
+        <ExpenseList
+          expenses={expenses}
+          handleDeleteItem={handleDeleteItem}
+          handleEditItem={handleEditItem}
+          clearItems={clearItems}
+        />
       </main>
       <h2>
         Total Spending: <span className="total">${ expenses.reduce((total, curr) => total + Number(curr.amount), 0) }</span>

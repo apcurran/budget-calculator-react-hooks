@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ExpenseItem({ expenseInfo }) {
+export default function ExpenseItem({ expenseInfo, handleEditItem, handleDeleteItem }) {
     if (!expenseInfo) return null;
 
     const { id, charge, amount } = expenseInfo;
@@ -12,8 +12,8 @@ export default function ExpenseItem({ expenseInfo }) {
                 <span className="list__item__amount">${ amount }</span>
             </div>
             <div className="list__item-btns">
-                <button className="list__item-btns__edit">Edit</button>
-                <button className="list__item-btns__delete">Delete</button>
+                <button onClick={() => handleEditItem(id)} className="list__item-btns__edit">Edit</button>
+                <button onClick={() => handleDeleteItem(id)} className="list__item-btns__delete">Delete</button>
             </div>
         </li>
     )
