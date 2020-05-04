@@ -38,6 +38,8 @@ function App() {
     };
 
     setExpenses([...expenses, newExpense]);
+    setCharge("");
+    setAmount("");
   }
 
   return (
@@ -54,7 +56,9 @@ function App() {
         />
         <ExpenseList expenses={expenses} />
       </main>
-  <h2>Total Spending: <span className="total">$ { expenses.reduce((total, curr) => total + Number(curr.amount), 0) }</span></h2>
+      <h2>
+        Total Spending: <span className="total">${ expenses.reduce((total, curr) => total + Number(curr.amount), 0) }</span>
+      </h2>
     </div>
   );
 }
