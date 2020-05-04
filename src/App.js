@@ -17,6 +17,7 @@ function App() {
   const [charge, setCharge] = useState("");
   // Single additional amount
   const [amount, setAmount] = useState("");
+  const [alert, setAlert] = useState({ show: false });
 
   function handleCharge(event) {
     setCharge(event.target.value);
@@ -29,7 +30,12 @@ function App() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (charge === "" || amount < 0) return;
+    // Check for invalid data first
+    if (charge === "" || amount < 0) {
+      handleAlert({ type: "danger", text: "Please check that your charge is not empty, and the amount value is greater than zero." });
+
+      return;
+    }
 
     const newExpense = {
       id: uuidv4(),
@@ -40,10 +46,20 @@ function App() {
     setExpenses([...expenses, newExpense]);
     setCharge("");
     setAmount("");
+    handleAlert({ type: "success", text: "Item added" })
+  }
+
+  function handleAlert({ type, text }) {
+    setAlert({ show: true, type, text });
+
+    setTimeout(() => {
+      setAlert({ show: false });
+    }, 4000);
   }
 
   return (
     <div className="App">
+      {alert.show && <FormAlert type={alert.type} text={alert.text} />}
       <FormAlert />
       <h1>Budget Calculator</h1>
       <main className="main">

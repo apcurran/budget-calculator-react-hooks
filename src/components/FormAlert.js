@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function FormAlert() {
+export default function FormAlert({ type, text }) {
+
+    
     return (
-        <div>
-            Alert
+        <div className={`alert alert--${type}`}>
+            {text}
         </div>
     )
 }
