@@ -107,7 +107,7 @@ function App() {
     <div className="App">
       {alert.show && <FormAlert type={alert.type} text={alert.text} />}
       <FormAlert />
-      <h1>Budget Calculator</h1>
+      <h1 className="title">Budget Calculator</h1>
       <main className="main">
         <ExpenseForm
           charge={charge}

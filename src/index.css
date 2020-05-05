@@ -1,5 +1,24 @@
-body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input,
+button,
+label {
   font-family: sans-serif;
+}
+
+.App {
+  width: 40rem;
+  max-width: 92.5%;
+  margin: 2rem auto;
+}
+
+.title {
+  margin-bottom: 1rem;
 }
 
 .list__item__expense {
@@ -8,6 +27,7 @@ body {
 
 .alert {
   padding: .5rem 1.5rem;
+  border-radius: 4px;
 }
 
 .alert--danger {
@@ -16,4 +36,89 @@ body {
 
 .alert--success {
   background-color: lightgreen;
+}
+
+/* Form */
+.form {
+  width: 20rem;
+  max-width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .75rem;
+}
+
+.form-group__label {
+  margin-bottom: .25rem;
+}
+
+.form-group__input {
+  padding: .5rem;
+  border-radius: 4px;
+  border: 1px solid #EDF2F7;
+  background-color: #EDF2F7;
+  outline: none;
+}
+
+.form-group__input:focus {
+  border-color: #4299e1;
+}
+
+.form__submit {
+  margin: 1rem 0 1.25rem 0;
+  padding: .6rem 1.5rem;
+  border: none;
+  background-color: #2C5282;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+/* Expenses */
+.expense-list {
+  list-style: none;
+}
+
+.expense {
+  margin-bottom: 1rem;
+}
+
+.list__item {
+  margin-bottom: .25rem;
+}
+
+.expense-btn {
+  padding: .4rem 1.15rem;
+  border-radius: 500px;
+  border: 2px solid #718096;
+  color: #4a5568;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.list__item-btns__edit {
+  margin-right: .75rem;
+}
+
+.clear-btn {
+  margin: 1.5rem 0;
+  padding: .5rem 1.15rem;
+  border: none;
+  border-radius: 500px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .225);
+  cursor: pointer;
+
+  transition:
+    background-color 125ms ease,
+    color 125ms ease;
+}
+
+.clear-btn:hover {
+  background-color: #4A5568;
+  color: #fff;
 }

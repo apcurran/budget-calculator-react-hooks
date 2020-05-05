@@ -8,7 +8,7 @@ export default function ExpenseList({ expenses, handleEditItem, handleDeleteItem
 
     return (
         <React.Fragment>
-            <ul className="list">
+            <ul className="expense-list">
                {expenses.map(expense => {
                    return (
                        <ExpenseItem
@@ -20,7 +20,7 @@ export default function ExpenseList({ expenses, handleEditItem, handleDeleteItem
                    )
                })}
             </ul>
-            {expenses.length > 0 && <button onClick={clearItems} className="submit">Clear Expenses</button>}
+            {expenses.length > 0 && <button onClick={clearItems} className="clear-btn">Clear Expenses</button>}
             <ExpenseItem />
         </React.Fragment>
     )
