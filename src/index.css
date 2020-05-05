@@ -2,6 +2,10 @@ body {
   font-family: sans-serif;
 }
 
+.list__item__expense {
+  margin-right: .5rem;
+}
+
 .alert {
   padding: .5rem 1.5rem;
 }

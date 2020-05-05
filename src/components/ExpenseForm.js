@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ExpenseForm({ charge, amount, handleCharge, handleAmount, handleSubmit }) {
+export default function ExpenseForm({ charge, amount, handleCharge, handleAmount, handleSubmit, edit }) {
     return (
         <form onSubmit={handleSubmit} className="form">
             <div className="form-group">
@@ -26,7 +26,9 @@ export default function ExpenseForm({ charge, amount, handleCharge, handleAmount
                     onChange={ handleAmount }
                 />
             </div>
-            <button type="submit" className="form__submit">Add</button>
+            <button type="submit" className="form__submit">
+                {edit ? "Done" : "Submit"}
+            </button>
         </form>
     )
 }
